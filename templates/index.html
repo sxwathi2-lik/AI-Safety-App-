@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Safety Checker</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #141e30, #243b55);
+            font-family: Arial;
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+        h1 {
+            font-size: 32px;
+        }
+        textarea {
+            width: 70%;
+            height: 120px;
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 12px 25px;
+            border-radius: 25px;
+            border: none;
+            background: #ff4b2b;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .card {
+            margin-top: 25px;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>🔐 AI Scam & Fake Review Detector</h1>
+
+<form action="/analyze" method="post">
+    <textarea name="text" placeholder="Paste message / review here..."></textarea><br><br>
+    <button type="submit">Analyze 🚀</button>
+</form>
+
+{% if result %}
+<div class="card">
+    <h2>{{ result }}</h2>
+    <h3>Reason: {{ reason }}</h3>
+    <h3>Trust Score: {{ trust }}%</h3>
+    <h3>Sentiment: {{ sentiment }}</h3>
+</div>
+{% endif %}
+
+</body>
+</html>
